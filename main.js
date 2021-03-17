@@ -7,7 +7,6 @@ var student = [
   }
 ]
 
-
 for (var key in student) {
   console.log(student[key]);
 }
@@ -33,29 +32,32 @@ var studenti = [
   }
 ]
 
+$(document).ready(function() {
 for (var i = 0; i < studenti.length; i++) {
   console.log(studenti[i]);
   for (var kiave in studenti[i]) {
     console.log(kiave, studenti[i][kiave]);
   }
+  $('#lista').append('<li>' + studenti[i].nome + ' ' + studenti[i].cognome + '</li')
 }
+});
 
 $('#add').click(function () {
+  var extraStudente = {};
 
-  var nome = $("#nome").val();
-  var cognome = $("#cognome").val();
-  var eta = $("#eta").val();
-  var casata = $("#casata").val();
-
-
-  var studente = {
-    nome: nome,
-    cognome: cognome,
-    eta: eta,
-    casata: casata,
+  var extraStudente = {
+    'nome': '',
+    'cognome': '',
+    'eta': '',
+    'casata': '',
   }
 
-  studenti.push(studente);
+  extraStudente.nome = $("#nome").val();
+  extraStudente.cognome = $("#cognome").val();
+  extraStudente.eta = $("#eta").val();
+  extraStudente.casata = $("#casata").val();
+
+  studenti.push(extraStudente);
 
   console.log(studenti);
 
